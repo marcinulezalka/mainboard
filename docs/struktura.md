@@ -8,7 +8,7 @@ mainboard/
 │   ├── Contracts/       kontrakty (interfejsy) paczki — jedyne, od czego zależą inne pakiety i aplikacja
 │   └── MainboardServiceProvider.php   wiązania kontraktów i ładowanie zasobów (auto-discovery)
 ├── docs/                dokumentacja
-├── .claude/skills/      skille AI (Claude Code, GitHub Copilot)
+├── .claude/skills/      skille AI tylko dla domeny paczki (wspólne dostarcza simplysmart/tools)
 ├── CHANGELOG.md         historia zmian (Keep a Changelog)
 ├── CONTRIBUTING.md      zasady rozwoju i wydawania wersji
 ├── VERSION              bieżąca wersja (SemVer), aktualizowana przez simplysmart/tools (zob. CONTRIBUTING.md)
