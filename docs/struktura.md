@@ -6,7 +6,11 @@ mainboard/
 ├── public/              document root, punkt wejścia: public/index.php, assety (zob. niżej)
 ├── src/                 kod paczki, namespace Simplysmart\Mainboard\ (PSR-4)
 │   ├── Contracts/       kontrakty (interfejsy) paczki — jedyne, od czego zależą inne pakiety i aplikacja
+│   ├── Translation/     kaskada tłumaczeń (text_*) i ścieżka tłumaczeń frameworka
+│   ├── Localization/    formatowanie regionalne (local_*)
+│   ├── helpers.php      helpery text_* i local_* (autoload "files")
 │   └── MainboardServiceProvider.php   wiązania kontraktów i ładowanie zasobów (auto-discovery)
+├── lang/                tłumaczenia Core: lang/<locale>/<plik>.php
 ├── docs/                dokumentacja
 ├── .claude/skills/      skille AI tylko dla domeny paczki (wspólne dostarcza simplysmart/tools)
 ├── CHANGELOG.md         historia zmian (Keep a Changelog)

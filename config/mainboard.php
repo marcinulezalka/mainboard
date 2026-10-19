@@ -30,4 +30,13 @@ return [
 
     ],
 
+    'locale' => [
+
+        /*
+         * Waluta (kod ISO 4217) dla local_money(), gdy wywołanie nie poda własnej.
+         */
+        'currency' => env('APP_CURRENCY', 'PLN'),
+
+    ],
+
 ];

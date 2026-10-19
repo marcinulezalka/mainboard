@@ -13,6 +13,31 @@ Paczka Composer: `simplysmart/mainboard`, namespace `Simplysmart\Mainboard\`.
 - Laravel 13 (`illuminate/support` ^13.0); provider `Simplysmart\Mainboard\MainboardServiceProvider` rejestruje się sam (auto-discovery)
 - Pakiety zewnętrzne: zob. [docs/zaleznosci.md](docs/zaleznosci.md)
 
+## Tłumaczenia i formatowanie
+
+Helpery dla kodu i widoków Blade (`{{ text_action('save') }}`). Teksty szukane są kaskadowo:
+**paczka strefy → mainboard → `lang/` aplikacji**, tylko w bieżącym języku. Gdy klucza nie ma
+nigdzie, helper zwraca sam klucz (np. `actions.save`), a nie tekst w innym języku, więc od razu
+widać brak tłumaczenia.
+
+| Helper | Klucz | Przykład |
+| --- | --- | --- |
+| `text($key)` | dowolny, z namespace paczki lub bez | `text('zone::dashboard.title')` |
+| `text_action($key)` | `actions.<key>` | `text_action('save')` → „Zapisz” |
+| `text_data($model, $column)` | `data.<model>.<kolumna>`, potem `data.<kolumna>` | `text_data($user, 'first_name')` |
+| `text_file($key)` | `files.<key>` (eksport CSV, Excel, PDF) | `text_file('headers.email')` |
+| `text_email($key)` | `emails.<key>` | `text_email('welcome.subject', ['name' => $name])` |
+| `local_money($kwota, ?$waluta)` | waluta domyślna: `APP_CURRENCY` (PLN) | `1 234,50 zł` |
+| `local_number($liczba, $precyzja)` | | `9 876 543,21` |
+| `local_date($data, ?$format)` | format ISO Carbona, domyślnie `L` | `20.10.2026`, `D MMMM YYYY` → „20 października 2026” |
+| `local_day($dzień)` / `local_month($miesiąc)` | dzień ISO 1–7 / miesiąc 1–12 albo data | „poniedziałek”, „marzec” |
+
+Namespace paczki przechodzi przez grupę: `text_email('zone::welcome.subject')` szuka
+`zone::emails.welcome.subject`, potem `mainboard::emails.welcome.subject`, potem `emails.welcome.subject`.
+Teksty Core (np. `lang/pl/actions.php`) aplikacja zmienia plikiem `lang/vendor/mainboard/<locale>/<plik>.php`,
+a teksty paczki strefy plikiem `lang/vendor/<paczka>/<locale>/<plik>.php`. Kontrakty:
+`Contracts\TextTranslator` i `Contracts\LocalFormatter`.
+
 ## Dokumentacja
 
 | Dokument | Zawartość |

@@ -20,6 +20,9 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 - Konfiguracja Core w `config/mainboard.php` (`mergeConfigFrom`), nadpisywana zmiennymi `MAIL_LOG_CHANNEL`, `LOG_DAILY_DAYS`, `MAIL_REQUIRE_TLS`.
 - Dziennik poczty przeniesiony ze szkieletu do Core: dzienny kanał `mail` (`storage/logs/email-RRRR-MM-DD.log`), mailer `log` kierowany do niego, wymuszony STARTTLS dla SMTP — każde ustawienie tylko wtedy, gdy aplikacja go nie zdefiniowała; listener `LogSentMail` odnotowuje wysyłki przez prawdziwy transport.
 - Zależności `illuminate/log` ^13.0 i `illuminate/mail` ^13.0.
+- Polskie tłumaczenia frameworka w `lang/pl/` (`validation`, `auth`, `passwords`, `pagination`), ładowane przez Core między tłumaczeniami frameworka a `lang/` aplikacji, więc plik `lang/pl/<plik>.php` w aplikacji nadal je nadpisuje; zależność `illuminate/translation` ^13.0.
+- Kaskadowe tłumaczenia bez języka zapasowego (paczka strefy → mainboard → `lang/` aplikacji → klucz): kontrakt `TextTranslator` i helpery `text`, `text_action`, `text_data`, `text_file`, `text_email`; akcje interfejsu w `lang/{pl,en}/actions.php`.
+- Formatowanie regionalne: kontrakt `LocalFormatter` i helpery `local_money`, `local_number`, `local_date`, `local_day`, `local_month`; domyślna waluta `APP_CURRENCY` (PLN).
 - Strona startowa pokazuje logo i korzysta ze stylów marki; adresy assetów zawierają wersję z pliku `VERSION`, więc po wydaniu przeglądarki pobierają nowe pliki.
 - Strefa czasowa daty wydania w `tools/version-release.php` ustawiana zmienną `RELEASE_TIMEZONE` (domyślnie `Europe/Warsaw`).
 
