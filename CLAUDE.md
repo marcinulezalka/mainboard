@@ -9,6 +9,12 @@ Standalone Laravel Composer package (`illuminate/support` ^13): the modular main
 - **Service Provider**: `src/MainboardServiceProvider.php`, auto-discovered via `extra.laravel.providers` in `composer.json`. Load package resources in `boot()`: migrations (`loadMigrationsFrom`), views and Blade components (`loadViewsFrom`), config (`mergeConfigFrom`), routes. Keep these files inside the package, never in the skeleton.
 - **Assets**: Static CSS without a bundler in `public/assets/` (see `docs/struktura.md`); brand sources in `brand/`.
 
+## Security & Multi-Zone Isolation
+Zones are isolated sandboxes (own users table, guard and session). The skeleton's `CLAUDE.md` section "Multi-Zone Isolation" is the source of truth; in short:
+- **Isolated guards**: Always name the guard when checking auth (`Auth::guard('<zone-guard>')`, `auth:<zone-guard>`). Never rely on the default `Auth::user()` or `auth.defaults.guard`; take the guard name from this package's config.
+- **Session isolation**: Session cookie name (and path/domain where zones differ) and session middleware are scoped per zone, so concurrent logins in other zones keep working.
+- **Cache isolation**: Prefix cache keys with the zone (`zone:<zone>:...`) while the store is `database`; use `Cache::tags(['zone:<zone>', ...])` only on `redis` (`database` and `file` stores do not support tags). Never call a global `Cache::flush()`.
+
 ## AI Skills
 `.claude/skills/` holds only skills for this package's own domain (e.g. domain actions, DTOs, package-specific UI components). Shared skills — `solid-dry`, `docs-after-tests`, `changelog-before-commit` — come from `simplysmart/tools` (`resources/boost/skills/`) and are installed into the skeleton by Laravel Boost; edit them there, never copy them here.
 
