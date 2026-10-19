@@ -15,6 +15,13 @@ Zones are isolated sandboxes (own users table, guard and session). The skeleton'
 - **Session isolation**: Session cookie name (and path/domain where zones differ) and session middleware are scoped per zone, so concurrent logins in other zones keep working.
 - **Cache isolation**: Prefix cache keys with the zone (`zone:<zone>:...`) while the store is `database`; use `Cache::tags(['zone:<zone>', ...])` only on `redis` (`database` and `file` stores do not support tags). Never call a global `Cache::flush()`.
 
+## Routing & URL Conventions
+The skeleton's `CLAUDE.md` section "Routing & URL Conventions" is the source of truth; in short:
+- **Clean signatures**: Controllers, actions and Form Requests never accept `$locale` or a zone slug; use `App::getLocale()`.
+- **Configurable slug, fixed names**: `MainboardServiceProvider` groups the routes with `prefix` = the slug from this package's config and the fixed route-name prefix `as` = `mainboard.` (never configurable), plus the zone middleware.
+- **Relative route files**: Define relative paths and short names (`->name('dashboard')` → `mainboard.dashboard`); prefixes and middleware come only from the Service Provider.
+- **Named routes only**: Generate links with `route()`, never hand-built URLs containing the locale or slug.
+
 ## AI Skills
 `.claude/skills/` holds only skills for this package's own domain (e.g. domain actions, DTOs, package-specific UI components). Shared skills — `solid-dry`, `docs-after-tests`, `changelog-before-commit` — come from `simplysmart/tools` (`resources/boost/skills/`) and are installed into the skeleton by Laravel Boost; edit them there, never copy them here.
 
