@@ -19,10 +19,6 @@ $assetVersion = rawurlencode(is_readable(VERSION_FILE) ? trim((string) file_get_
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>simplysmart</title>
-    <link rel="icon" href="/favicon.ico" sizes="32x32">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
 <?php foreach (STYLESHEETS as $stylesheet): ?>
     <link rel="stylesheet" href="/assets/css/<?= $stylesheet ?>?v=<?= $assetVersion ?>">
 <?php endforeach; ?>

@@ -27,14 +27,11 @@ trzyma wzorce w pełnej rozdzielczości, `public/` tylko zoptymalizowane pochodn
 
 ```
 public/
-├── favicon.ico, favicon.svg     favicony w katalogu głównym: przeglądarki szukają ich bez <link>
-├── apple-touch-icon.png
-├── site.webmanifest
 └── assets/
     ├── css/                     tokens.css → base.css → app.css
     ├── js/
     ├── img/
-    │   ├── brand/               logo.svg (currentColor), ikony z manifestu
+    │   ├── brand/               logo.svg (currentColor)
     │   └── ui/                  ikony i ilustracje interfejsu
     └── fonts/                   tylko woff2
 ```
