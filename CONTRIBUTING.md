@@ -9,7 +9,9 @@ Zanim dodasz zależność do `composer.json`, sprawdź zasady w
 
 ## Standardy kodu
 
-PSR-4 (autoload: jedna klasa na plik, namespace odpowiada katalogowi) i styl PER Coding Style (następca PSR-12) pilnowany przez Laravel Pint z presetem `per` (`pint.json`). Przed commitem uruchom `composer lint`, a `composer format` poprawia styl.
+PSR-4 (autoload: jedna klasa na plik, namespace odpowiada katalogowi) i styl PER Coding Style (następca PSR-12) pilnowany przez Laravel Pint z presetem `per` (`pint.json`). Każdy plik PHP zaczyna się od `declare(strict_types=1);` (wymusza to Pint). Przed commitem uruchom `composer lint` i `composer analyse` (PHPStan, poziom `max`); `composer format` poprawia styl.
+
+Kontrakty (interfejsy) paczki trzymamy w `src/Contracts/`, a ich implementacje wiążemy w `MainboardServiceProvider`.
 
 ## Wydanie wersji
 

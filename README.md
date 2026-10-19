@@ -10,7 +10,8 @@ Paczka Composer: `simplysmart/mainboard`, namespace `Simplysmart\Mainboard\`.
 ## Wymagania
 
 - PHP ^8.4
-- Pakiety zewnętrzne: tylko `laravel/pint` w `require-dev`, zob. [docs/zaleznosci.md](docs/zaleznosci.md)
+- Laravel 13 (`illuminate/support` ^13.0); provider `Simplysmart\Mainboard\MainboardServiceProvider` rejestruje się sam (auto-discovery)
+- Pakiety zewnętrzne: zob. [docs/zaleznosci.md](docs/zaleznosci.md)
 
 ## Dokumentacja
 

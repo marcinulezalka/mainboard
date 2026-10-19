@@ -9,7 +9,10 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 - `CONTRIBUTING.md` z zasadami wpisów w `CHANGELOG.md` i wydawania wersji.
 - Licencja MIT: plik `LICENSE` i sekcja „Licencja” w README.
 - Dokumentacja w `docs/`: struktura projektu, wdrożenie na hosting współdzielony oraz pakiety zewnętrzne (aktualne zależności, licencje, zasady dodawania).
-- `composer.json` paczki `simplysmart/mainboard` (PHP ^8.4, bez zależności, autoload PSR-4: `Simplysmart\Mainboard\` → `src/`), `.gitignore` wykluczający pliki środowiska lokalnego (`.env*`, cały katalog `infrastructure/` z konfiguracją vhosta, PHP-FPM i SSL, katalogi IDE), `.editorconfig` i `.gitattributes`.
+- `composer.json` paczki `simplysmart/mainboard` (PHP ^8.4, autoload PSR-4: `Simplysmart\Mainboard\` → `src/`), `.gitignore` wykluczający pliki środowiska lokalnego (`.env*`, cały katalog `infrastructure/` z konfiguracją vhosta, PHP-FPM i SSL, katalogi IDE), `.editorconfig` i `.gitattributes`.
+- Integracja z Laravelem 13: zależność `illuminate/support` ^13.0 i `MainboardServiceProvider` rejestrowany automatycznie (`extra.laravel.providers`); kontrakty paczki w `src/Contracts/` (`Simplysmart\Mainboard\Contracts\`).
+- Analiza statyczna PHPStan na poziomie `max` (`phpstan.neon`, `composer analyse`); Pint wymusza `declare(strict_types=1);`.
+- `CLAUDE.md` z zasadami paczki dla agentów AI: granice zależności, kontrakty, Service Provider, bramki jakości.
 - Skille AI w jednym miejscu, `.claude/skills/`, wersjonowane w repozytorium; `.gitignore` pomija tylko lokalne pliki sesji AI: `.claude/settings.local.json` i `CLAUDE.local.md`.
 - Wpis w `### Changed` oznaczony `**BREAKING**` (lub `BREAKING:`) na początku linii wymusza podbicie MAJOR w `tools/version-release.php`.
 - Identyfikacja marki w `brand/`: logo (SVG i PNG na jasne i ciemne tło), sygnet „S” w stylu kroju Mole (PNG z przezroczystym tłem, na jasne i ciemne tło), kolory i zasady użycia w `brand/README.md`; katalog wykluczony z paczek (`export-ignore`).

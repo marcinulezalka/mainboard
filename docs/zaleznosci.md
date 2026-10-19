@@ -4,7 +4,9 @@
 
 | Pakiet | Wersja | Licencja | Sekcja | Do czego |
 | --- | --- | --- | --- | --- |
-| `laravel/pint` | `^1.27` | MIT | `require-dev` | formatowanie kodu w stylu PER Coding Style (`composer lint` / `composer format`) |
+| `illuminate/support` | `^13.0` | MIT | `require` | integracja z Laravelem: `ServiceProvider`, kontener |
+| `laravel/pint` | `^1.27` | MIT | `require-dev` | formatowanie kodu w stylu PER Coding Style i `declare(strict_types=1)` (`composer lint` / `composer format`) |
+| `phpstan/phpstan` | `^2.1` | MIT | `require-dev` | analiza statyczna na poziomie `max` (`composer analyse`) |
 
 Stan sprawdzisz poleceniem:
 

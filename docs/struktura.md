@@ -5,12 +5,16 @@ mainboard/
 ├── brand/               źródła marki: logo, sygnet, kolory (zob. brand/README.md)
 ├── public/              document root, punkt wejścia: public/index.php, assety (zob. niżej)
 ├── src/                 kod paczki, namespace Simplysmart\Mainboard\ (PSR-4)
+│   ├── Contracts/       kontrakty (interfejsy) paczki — jedyne, od czego zależą inne pakiety i aplikacja
+│   └── MainboardServiceProvider.php   wiązania kontraktów i ładowanie zasobów (auto-discovery)
 ├── docs/                dokumentacja
 ├── .claude/skills/      skille AI (Claude Code, GitHub Copilot)
 ├── CHANGELOG.md         historia zmian (Keep a Changelog)
 ├── CONTRIBUTING.md      zasady rozwoju i wydawania wersji
 ├── VERSION              bieżąca wersja (SemVer), aktualizowana przez simplysmart/tools (zob. CONTRIBUTING.md)
-├── composer.json        metadane paczki simplysmart/mainboard, autoload PSR-4
+├── composer.json        metadane paczki simplysmart/mainboard, autoload PSR-4, extra.laravel.providers
+├── phpstan.neon         konfiguracja PHPStan (poziom max)
+├── CLAUDE.md            instrukcje dla agentów AI
 └── LICENSE              licencja MIT
 ```
 

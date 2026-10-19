@@ -23,10 +23,12 @@
         "source": "https://github.com/marcinulezalka/mainboard"
     },
     "require": {
-        "php": "^8.4"
+        "php": "^8.4",
+        "illuminate/support": "^13.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.27"
+        "laravel/pint": "^1.27",
+        "phpstan/phpstan": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +37,15 @@
     },
     "scripts": {
         "lint": "pint --test",
-        "format": "pint"
+        "format": "pint",
+        "analyse": "phpstan analyse --memory-limit=512M"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Simplysmart\\Mainboard\\MainboardServiceProvider"
+            ]
+        }
     },
     "config": {
         "sort-packages": true
