@@ -17,6 +17,9 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 - Wpis w `### Changed` oznaczony `**BREAKING**` (lub `BREAKING:`) na początku linii wymusza podbicie MAJOR w `tools/version-release.php`.
 - Identyfikacja marki w `brand/`: logo (SVG i PNG na jasne i ciemne tło), sygnet „S” w stylu kroju Mole (PNG z przezroczystym tłem, na jasne i ciemne tło), kolory i zasady użycia w `brand/README.md`; katalog wykluczony z paczek (`export-ignore`).
 - Struktura assetów w `public/assets/` (CSS, grafiki, fonty) i style oparte na tokenach marki w `tokens.css`, z motywem ciemnym.
+- Konfiguracja Core w `config/mainboard.php` (`mergeConfigFrom`), nadpisywana zmiennymi `MAIL_LOG_CHANNEL`, `LOG_DAILY_DAYS`, `MAIL_REQUIRE_TLS`.
+- Dziennik poczty przeniesiony ze szkieletu do Core: dzienny kanał `mail` (`storage/logs/email-RRRR-MM-DD.log`), mailer `log` kierowany do niego, wymuszony STARTTLS dla SMTP — każde ustawienie tylko wtedy, gdy aplikacja go nie zdefiniowała; listener `LogSentMail` odnotowuje wysyłki przez prawdziwy transport.
+- Zależności `illuminate/log` ^13.0 i `illuminate/mail` ^13.0.
 - Strona startowa pokazuje logo i korzysta ze stylów marki; adresy assetów zawierają wersję z pliku `VERSION`, więc po wydaniu przeglądarki pobierają nowe pliki.
 - Strefa czasowa daty wydania w `tools/version-release.php` ustawiana zmienną `RELEASE_TIMEZONE` (domyślnie `Europe/Warsaw`).
 

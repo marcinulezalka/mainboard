@@ -24,6 +24,8 @@
     },
     "require": {
         "php": "^8.4",
+        "illuminate/log": "^13.0",
+        "illuminate/mail": "^13.0",
         "illuminate/support": "^13.0"
     },
     "require-dev": {
