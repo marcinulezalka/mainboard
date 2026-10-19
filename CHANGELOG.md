@@ -12,7 +12,7 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 - `composer.json` paczki `simplysmart/mainboard` (PHP ^8.4, bez zależności, autoload PSR-4: `Simplysmart\Mainboard\` → `src/`), `.gitignore` wykluczający pliki środowiska lokalnego (`.env*`, cały katalog `infrastructure/` z konfiguracją vhosta, PHP-FPM i SSL, katalogi IDE), `.editorconfig` i `.gitattributes`.
 - Skille AI w jednym miejscu, `.claude/skills/`, wersjonowane w repozytorium; `.gitignore` pomija tylko lokalne pliki sesji AI: `.claude/settings.local.json` i `CLAUDE.local.md`.
 - Wpis w `### Changed` oznaczony `**BREAKING**` (lub `BREAKING:`) na początku linii wymusza podbicie MAJOR w `tools/version-release.php`.
-- Identyfikacja marki w `brand/`: logo (SVG i PNG na jasne i ciemne tło), sygnet „s” z kropką, kolory i zasady użycia w `brand/README.md`; katalog wykluczony z paczek (`export-ignore`).
+- Identyfikacja marki w `brand/`: logo (SVG i PNG na jasne i ciemne tło), sygnet (drugie „s” z logotypu, wtopione w tło), kolory i zasady użycia w `brand/README.md`; katalog wykluczony z paczek (`export-ignore`).
 - Favicony z sygnetu (`favicon.svg` dopasowujący się do ciemnego motywu przeglądarki, `favicon.ico`, `apple-touch-icon.png`) i `site.webmanifest` z ikonami 192 i 512 px.
 - Struktura assetów w `public/assets/` (CSS, grafiki, fonty) i style oparte na tokenach marki w `tokens.css`, z motywem ciemnym.
 - Strona startowa pokazuje logo i korzysta ze stylów marki; adresy assetów zawierają wersję z pliku `VERSION`, więc po wydaniu przeglądarki pobierają nowe pliki.

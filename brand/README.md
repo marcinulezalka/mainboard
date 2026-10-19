@@ -10,11 +10,18 @@ kopie w `public/` — zob. [docs/struktura.md](../docs/struktura.md#assety).
 | `logo/simplysmart.svg` | wzorzec logotypu (wektor, czarny). Z niego powstają wszystkie pozostałe wersje |
 | `logo/png/simplysmart-on-light-{800,1600,2400}.png` | logo czarne, na jasne tło: maile, dokumenty, prezentacje |
 | `logo/png/simplysmart-on-dark-{800,1600,2400}.png` | logo białe, na ciemne tło |
-| `icon/simplysmart-mark.svg` | sygnet: „s” z kropką z logotypu, `fill="currentColor"` |
+| `icon/simplysmart-mark.svg` | sygnet: drugie „s” z logotypu w kwadratowym kadrze, `fill="currentColor"` |
 | `icon/simplysmart-icon.svg` | sygnet na czarnym zaokrąglonym kaflu — źródło faviconów |
 | `icon/simplysmart-icon-1024.png` | ikona 1024×1024 (sklepy z aplikacjami, avatary) |
 
 Nazwy `on-light` / `on-dark` mówią o **tle**, na którym logo stoi, nie o kolorze logo.
+
+## Sygnet
+
+Drugie „s” z logotypu (`simply`**`s`**`mart`). W logo nie ma własnego konturu: dolny łuk wyrasta
+z „y”, górny przechodzi w „m”. Sygnet zachowuje tę cechę — oba łuki wychodzą poza krawędź kadru,
+więc na kaflu litera wtapia się w tło strony, a czarne części kafla same układają się w „S”.
+Kadr: prostokąt x 414,5–498,5, y 34–118 w układzie `logo/simplysmart.svg`.
 
 ## Kolory
 
