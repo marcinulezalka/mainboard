@@ -7,6 +7,5 @@
 *.php diff=php
 
 /brand export-ignore
-/tools export-ignore
 /docs export-ignore
 /.claude export-ignore

@@ -19,10 +19,14 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 
 ### Changed
 
+- Standardy kodu: PSR-4 i PER Coding Style pilnowany przez Laravel Pint z presetem `per` (`pint.json`, `composer lint` / `composer format`); `laravel/pint` w `require-dev`.
+- Mainboard jest paczką, a nie projektem: usunięto katalog `infrastructure/` (vhost Apache, pula PHP-FPM, certyfikaty SSL) i domenę lokalną `mainboard.local`; pakiet rozwijany jest w `packages/simplysmart/mainboard` projektu głównego i podpinany przez repozytorium Composera typu `path`.
+- Wersję pakietu wydaje wspólny przybornik `simplysmart/tools` (https://github.com/marcinulezalka/tools) z projektu głównego: `vendor/bin/version-release --root=packages/simplysmart/mainboard`; własny katalog `tools/` pakietu usunięty.
 - Instrukcja wydawania wersji przeniesiona do `CONTRIBUTING.md`; plik `USAGE.md` (jednorazowa aktywacja vhosta i nieaktualne kroki wdrożenia) usunięty.
 - Katalog `scripts/` przemianowany na `tools/` (nazwy `bin`/`scripts` bywają zarezerwowane lub blokowane na hostingach współdzielonych); `.gitattributes` wyklucza `tools/` z paczek (`export-ignore`).
 - README skrócone do opisu, wymagań, szybkiego startu i spisu dokumentacji; szczegóły przeniesione do `docs/`, które `.gitattributes` również wyklucza z paczek.
 - `tools/version-release.php`: sekcja `### Deprecated` podbija MINOR zamiast PATCH (zgodnie z SemVer).
+- Repozytorium przemianowane z `simplysmart` na `mainboard` (`https://github.com/marcinulezalka/mainboard`): adresy w `composer.json`, katalog projektu `mainboard/`, domena lokalna `mainboard.local`, paczka `git archive` jako `mainboard.zip`.
 
 ### Fixed
 

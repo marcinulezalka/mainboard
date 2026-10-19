@@ -1,24 +1,18 @@
 # Struktura projektu
 
 ```
-simplysmart/
+mainboard/
 ├── brand/               źródła marki: logo, sygnet, kolory (zob. brand/README.md)
 ├── public/              document root, punkt wejścia: public/index.php, assety (zob. niżej)
 ├── src/                 kod paczki, namespace Simplysmart\Mainboard\ (PSR-4)
-├── tools/               narzędzia deweloperskie, np. version-release.php
 ├── docs/                dokumentacja
 ├── .claude/skills/      skille AI (Claude Code, GitHub Copilot)
 ├── CHANGELOG.md         historia zmian (Keep a Changelog)
 ├── CONTRIBUTING.md      zasady rozwoju i wydawania wersji
-├── VERSION              bieżąca wersja (SemVer), aktualizowana przez tools/version-release.php
+├── VERSION              bieżąca wersja (SemVer), aktualizowana przez simplysmart/tools (zob. CONTRIBUTING.md)
 ├── composer.json        metadane paczki simplysmart/mainboard, autoload PSR-4
 └── LICENSE              licencja MIT
 ```
-
-## Dlaczego `tools/`, a nie `scripts/` lub `bin/`
-
-Na hostingach współdzielonych nazwy `bin`, `cgi-bin` i `scripts` bywają zarezerwowane przez
-panel albo blokowane przez reguły WAF. `tools/` nie koliduje z żadnym popularnym panelem.
 
 ## Assety
 
@@ -48,5 +42,5 @@ Katalogi bez plików (`js/`, `img/ui/`, `fonts/`) zakładamy przy pierwszym plik
 
 ## Co trafia na serwer
 
-Tylko kod aplikacji i `public/`. `brand/`, `tools/`, `docs/` i `.claude/` mają w `.gitattributes` regułę `export-ignore`.
+Tylko kod aplikacji i `public/`. `brand/`, `docs/` i `.claude/` mają w `.gitattributes` regułę `export-ignore`.
 Szczegóły: [wdrozenie.md](wdrozenie.md).

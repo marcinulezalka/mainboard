@@ -4,7 +4,7 @@
 
 | Pakiet | Wersja | Licencja | Sekcja | Do czego |
 | --- | --- | --- | --- | --- |
-| — | — | — | — | brak: `composer.json` wymaga tylko `php: ^8.4` |
+| `laravel/pint` | `^1.27` | MIT | `require-dev` | formatowanie kodu w stylu PER Coding Style (`composer lint` / `composer format`) |
 
 Stan sprawdzisz poleceniem:
 

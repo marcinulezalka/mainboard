@@ -13,17 +13,16 @@ Jeśli panel wymusza stały katalog (np. `public_html/`), wyślij do niego **tyl
 | Ścieżka | Powód |
 | --- | --- |
 | `brand/` | źródła marki; serwis używa kopii z `public/` |
-| `tools/` | narzędzia deweloperskie, niepotrzebne w produkcji |
 | `docs/` | dokumentacja |
 | `.claude/`, `.git/` | skille AI i historia repozytorium |
 | `.env*` | dane środowiska. Na serwerze tworzy się osobny plik |
 
 ## Paczka przez `git archive`
 
-`brand/`, `tools/`, `docs/` i `.claude/` mają w `.gitattributes` regułę `export-ignore`, więc paczka ich nie zawiera:
+`brand/`, `docs/` i `.claude/` mają w `.gitattributes` regułę `export-ignore`, więc paczka ich nie zawiera:
 
 ```bash
-git archive --format=zip -o simplysmart.zip HEAD
+git archive --format=zip -o mainboard.zip HEAD
 ```
 
 ## Wdrożenie przez FTP

@@ -7,18 +7,24 @@ Zasady rozwijania projektu i wydawania kolejnych wersji.
 Zanim dodasz zależność do `composer.json`, sprawdź zasady w
 [docs/zaleznosci.md](docs/zaleznosci.md): licencja zgodna z MIT, `require` / `require-dev`, `composer audit`.
 
+## Standardy kodu
+
+PSR-4 (autoload: jedna klasa na plik, namespace odpowiada katalogowi) i styl PER Coding Style (następca PSR-12) pilnowany przez Laravel Pint z presetem `per` (`pint.json`). Przed commitem uruchom `composer lint`, a `composer format` poprawia styl.
+
 ## Wydanie wersji
 
 Wpisy zmian dodawaj w `CHANGELOG.md` pod `## [Unreleased]`, w sekcjach
 `### Added`, `### Changed`, `### Deprecated`, `### Removed`, `### Fixed`, `### Security`.
 Zmianę łamiącą oznacz na początku wpisu: `- **BREAKING** …`.
 
+Pakiet nie ma własnego skryptu wydań — używa wspólnego przybornika
+[`simplysmart/tools`](https://github.com/marcinulezalka/tools) zainstalowanego w projekcie
+głównym, w którym jest rozwijany (`packages/simplysmart/mainboard`). Z katalogu projektu głównego:
+
 ```bash
-php tools/version-release.php                  # PATCH / MINOR
-php tools/version-release.php --major-confirm  # gdy wymagany MAJOR (Removed lub **BREAKING**)
+vendor/bin/version-release --root=packages/simplysmart/mainboard                  # PATCH / MINOR
+vendor/bin/version-release --root=packages/simplysmart/mainboard --major-confirm  # gdy wymagany MAJOR (Removed lub **BREAKING**)
 ```
 
-Skrypt podbija `VERSION` i zamienia `[Unreleased]` na datowaną sekcję wydania.
-Reguła: `Removed` lub `**BREAKING**` → MAJOR, `Added` / `Deprecated` → MINOR,
-`Changed` / `Fixed` / `Security` → PATCH. Data w strefie `RELEASE_TIMEZONE`
-(domyślnie `Europe/Warsaw`).
+Skrypt podbija `VERSION` i zamienia `[Unreleased]` na datowaną sekcję wydania. Regułę
+podbijania (MAJOR / MINOR / PATCH) i strefę czasową daty opisuje README pakietu `simplysmart/tools`.

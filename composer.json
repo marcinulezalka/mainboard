@@ -3,27 +3,39 @@
     "name": "simplysmart/mainboard",
     "type": "library",
     "description": "Modular mainboard for simplysmart applications: connect modules, management workspaces, and beyond.",
-    "keywords": ["simplysmart", "mainboard", "modular", "modules"],
-    "homepage": "https://github.com/marcinulezalka/simplysmart",
+    "keywords": [
+        "simplysmart",
+        "mainboard",
+        "modular",
+        "modules"
+    ],
+    "homepage": "https://github.com/marcinulezalka/mainboard",
     "license": "MIT",
     "authors": [
         {
             "name": "Marcin Ulezalka",
-            "email": "simplysmartpl@gmail.com",
+            "email": "marcin.ulezalka@simplysmart.pl",
             "role": "Founder"
         }
     ],
     "support": {
-        "issues": "https://github.com/marcinulezalka/simplysmart/issues",
-        "source": "https://github.com/marcinulezalka/simplysmart"
+        "issues": "https://github.com/marcinulezalka/mainboard/issues",
+        "source": "https://github.com/marcinulezalka/mainboard"
     },
     "require": {
         "php": "^8.4"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.27"
     },
     "autoload": {
         "psr-4": {
             "Simplysmart\\Mainboard\\": "src/"
         }
+    },
+    "scripts": {
+        "lint": "pint --test",
+        "format": "pint"
     },
     "config": {
         "sort-packages": true
