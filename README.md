@@ -19,6 +19,7 @@ Paczka Composer: `simplysmart/mainboard`, namespace `Simplysmart\Mainboard\`.
 | [Struktura projektu](docs/struktura.md) | katalogi i ich rola |
 | [Wdrożenie](docs/wdrozenie.md) | hosting współdzielony: co wysyłać, a czego nie |
 | [Pakiety zewnętrzne](docs/zaleznosci.md) | zależności Composer, licencje, zasady dodawania |
+| [Marka](brand/README.md) | logo, sygnet, kolory, zasady użycia |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | zasady rozwoju i wydawania wersji |
 | [CHANGELOG.md](CHANGELOG.md) | historia zmian |
 

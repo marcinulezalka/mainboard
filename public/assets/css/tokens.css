@@ -1,0 +1,43 @@
+/**
+ * Tokeny marki simplysmart: jedyne miejsce z wartościami kolorów, fontów i odstępów.
+ * Komponenty używają tylko zmiennych semantycznych (--ss-color-bg, --ss-color-text…),
+ * nigdy palety bazowej — wtedy motyw ciemny zmienia się w jednym miejscu.
+ *
+ * Paleta marki: czerń i biel z logotypu (zob. brand/README.md).
+ */
+
+:root {
+    color-scheme: light dark;
+
+    /* Paleta bazowa */
+    --ss-black: #000000;
+    --ss-white: #ffffff;
+    --ss-gray-600: #5c5c5c;
+    --ss-gray-400: #a3a3a3;
+
+    /* Kolory semantyczne: motyw jasny */
+    --ss-color-bg: var(--ss-white);
+    --ss-color-text: var(--ss-black);
+    --ss-color-muted: var(--ss-gray-600);
+
+    /* Typografia: font systemowy, dopóki marka nie ma własnego (woff2 → assets/fonts/) */
+    --ss-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --ss-font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+    /* Odstępy */
+    --ss-space-1: 0.25rem;
+    --ss-space-2: 0.5rem;
+    --ss-space-4: 1rem;
+    --ss-space-8: 2rem;
+    --ss-space-16: 4rem;
+
+    --ss-content-width: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ss-color-bg: var(--ss-black);
+        --ss-color-text: var(--ss-white);
+        --ss-color-muted: var(--ss-gray-400);
+    }
+}

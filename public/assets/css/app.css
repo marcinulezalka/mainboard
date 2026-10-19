@@ -1,0 +1,26 @@
+/**
+ * Komponenty aplikacji. Zależy od tokens.css i base.css, ładowanych wcześniej
+ * w <head> (bez @import: parametr ?v= nie przechodzi na importowane pliki).
+ */
+
+/**
+ * .ss-page — kolumna treści wyśrodkowana na stronie.
+ */
+.ss-page {
+    max-width: var(--ss-content-width);
+    margin: var(--ss-space-16) auto;
+    padding: 0 var(--ss-space-4);
+}
+
+/**
+ * .ss-logo — logotyp osadzony inline (SVG z fill="currentColor"), więc przyjmuje
+ * kolor tekstu i sam przełącza się w motywie ciemnym. Szerokość ustala rodzic.
+ */
+.ss-logo {
+    width: 16rem;
+    color: var(--ss-color-text);
+}
+
+.ss-muted {
+    color: var(--ss-color-muted);
+}

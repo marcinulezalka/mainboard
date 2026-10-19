@@ -2,7 +2,7 @@
 
 | Dokument | Zawartość | Aktualizuj, gdy zmiana dotyczy… |
 | --- | --- | --- |
-| [Struktura projektu](struktura.md) | katalogi i pliki w katalogu głównym | nowego, usuniętego lub przemianowanego katalogu albo pliku w katalogu głównym |
+| [Struktura projektu](struktura.md) | katalogi i pliki w katalogu głównym, układ assetów w `public/` | nowego, usuniętego lub przemianowanego katalogu albo pliku w katalogu głównym |
 | [Wdrożenie](wdrozenie.md) | hosting współdzielony: DocumentRoot, co wysyłać na serwer | tego, co trafia na serwer (`.gitattributes` `export-ignore`, nowe katalogi deweloperskie) |
 | [Pakiety zewnętrzne](zaleznosci.md) | zależności Composer, licencje, zasady dodawania | `require` / `require-dev` w `composer.json` (tabela zależności) |
 
@@ -11,6 +11,7 @@ Poza `docs/`:
 | Dokument | Aktualizuj, gdy zmiana dotyczy… |
 | --- | --- |
 | [README.md](../README.md) | opisu projektu, wymagań lub spisu dokumentów. Tylko skrót i linki, szczegóły trafiają do `docs/` |
+| [brand/README.md](../brand/README.md) | pliki marki, kolorów lub zasad użycia logo |
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | sposobu pracy: polecenia, zasad changelogu, kroków wydania |
 | [CHANGELOG.md](../CHANGELOG.md) | zmian widocznych dla użytkownika. Wpis dodaje się przy commicie |
 
