@@ -1,25 +1,26 @@
 # Package: simplysmart/mainboard
 
 ## Context & Responsibility
-Standalone Laravel Composer package (`illuminate/support` ^13): the modular mainboard for simplysmart applications — connecting modules, management workspaces. Developed inside the skeleton at `packages/simplysmart/mainboard/` (symlinked into its `vendor/`), but it is its own Git repository and must work without the skeleton.
+Standalone Laravel Composer package (`illuminate/support` ^13): the **Application Core** of simplysmart applications — everything shared by the zones (contracts, base classes, DTOs, layouts and UI components, the shared localization middleware and the common zone mechanisms), kept out of the skeleton so it stays stock Laravel. Mainboard is not a zone: it has no users table, guard or zone slug of its own; zone packages build on its contracts. Developed inside the skeleton at `packages/simplysmart/mainboard/` (symlinked into its `vendor/`), but it is its own Git repository and must work without the skeleton.
 
 ## Architectural Boundaries
 - **No application coupling**: Never reference skeleton classes (`App\...`) or other packages' concrete classes. Depend on contracts; receive dependencies through constructor injection or the container.
 - **Contracts**: All contracts/interfaces of this package MUST reside in `src/Contracts/` (`Simplysmart\Mainboard\Contracts\*`). Bind their implementations in `MainboardServiceProvider::register()`.
-- **Service Provider**: `src/MainboardServiceProvider.php`, auto-discovered via `extra.laravel.providers` in `composer.json`. Load package resources in `boot()`: migrations (`loadMigrationsFrom`), views and Blade components (`loadViewsFrom`), config (`mergeConfigFrom`), routes. Keep these files inside the package, never in the skeleton.
+- **Service Provider**: `src/MainboardServiceProvider.php`, auto-discovered via `extra.laravel.providers` in `composer.json`. Merge config in `register()` (`mergeConfigFrom`); load other resources in `boot()`: migrations (`loadMigrationsFrom`), views and Blade components (`loadViewsFrom`), routes. Keep these files inside the package, never in the skeleton.
+- **Configuration**: Own settings live in `config/mainboard.php`, read only via `config('mainboard.key')`; `env()` only inside that file. Never publish it into the skeleton (override through `.env`). Extend framework config (e.g. log channels, mail options) with `config([...])` in the provider, never by editing the skeleton's `config/` (see the skeleton's "Framework Footprint").
 - **Assets**: Static CSS without a bundler in `public/assets/` (see `docs/struktura.md`); brand sources in `brand/`.
 
 ## Security & Multi-Zone Isolation
-Zones are isolated sandboxes (own users table, guard and session). The skeleton's `CLAUDE.md` section "Multi-Zone Isolation" is the source of truth; in short:
-- **Isolated guards**: Always name the guard when checking auth (`Auth::guard('<zone-guard>')`, `auth:<zone-guard>`). Never rely on the default `Auth::user()` or `auth.defaults.guard`; take the guard name from this package's config.
-- **Session isolation**: Session cookie name (and path/domain where zones differ) and session middleware are scoped per zone, so concurrent logins in other zones keep working.
+Zones are isolated sandboxes (own users table, guard and session). The skeleton's `CLAUDE.md` section "Multi-Zone Isolation" is the source of truth. Core provides the shared mechanisms; zone packages configure them. In short:
+- **Isolated guards**: Core code never assumes a guard: it receives the zone's guard (from the zone's config or a contract) and always names it (`Auth::guard($guard)`, `auth:<zone-guard>`). Never rely on the default `Auth::user()` or `auth.defaults.guard`.
+- **Session isolation**: Core's session middleware sets the zone's cookie name (and path/domain where zones differ) before `StartSession`, so concurrent logins in different zones keep working.
 - **Cache isolation**: Prefix cache keys with the zone (`zone:<zone>:...`) while the store is `database`; use `Cache::tags(['zone:<zone>', ...])` only on `redis` (`database` and `file` stores do not support tags). Never call a global `Cache::flush()`.
 
 ## Routing & URL Conventions
 The skeleton's `CLAUDE.md` section "Routing & URL Conventions" is the source of truth; in short:
 - **Clean signatures**: Controllers, actions and Form Requests never accept `$locale` or a zone slug; use `App::getLocale()`.
-- **Configurable slug, fixed names**: `MainboardServiceProvider` groups the routes with `prefix` = the slug from this package's config and the fixed route-name prefix `as` = `mainboard.` (never configurable), plus the zone middleware.
-- **Relative route files**: Define relative paths and short names (`->name('dashboard')` → `mainboard.dashboard`); prefixes and middleware come only from the Service Provider.
+- **Shared localization**: Core owns the single localization middleware (`App::setLocale()`, `URL::defaults()`, `forgetParameter('locale')`) and the locale-mode logic (one locale → no prefix; several → `{locale}` always). Zone packages only attach it.
+- **Core routes**: Any route of Core itself (e.g. `/` redirecting to the default locale) is registered by `MainboardServiceProvider` from relative route files with the fixed name prefix `mainboard.`; zone slugs and zone route-name prefixes belong to the zone packages.
 - **Named routes only**: Generate links with `route()`, never hand-built URLs containing the locale or slug.
 
 ## AI Skills
