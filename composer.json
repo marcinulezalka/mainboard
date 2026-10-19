@@ -1,0 +1,33 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "simplysmart/mainboard",
+    "type": "library",
+    "description": "Modular mainboard for simplysmart applications: connect modules, management workspaces, and beyond.",
+    "keywords": ["simplysmart", "mainboard", "modular", "modules"],
+    "homepage": "https://github.com/marcinulezalka/simplysmart",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Ulezalka",
+            "email": "simplysmartpl@gmail.com",
+            "role": "Founder"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/marcinulezalka/simplysmart/issues",
+        "source": "https://github.com/marcinulezalka/simplysmart"
+    },
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Simplysmart\\Mainboard\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

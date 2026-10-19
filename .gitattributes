@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+/tools export-ignore
+/docs export-ignore
+/.claude export-ignore
