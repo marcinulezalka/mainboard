@@ -1,0 +1,102 @@
+{
+  "guard": "aptis",
+  "permissions": [
+    "aptis.view-public",
+    "patient.portal",
+    "patients.view",
+    "patients.create",
+    "patients.edit",
+    "appointments.manage",
+    "medical-records.manage",
+    "accounting.manage",
+    "analytics.view",
+    "facility.settings",
+    "facility.users-manage",
+    "owner.full-access"
+  ],
+  "roles": {
+    "guest": {
+      "description": "Gość - niezalogowany użytkownik odwiedzający stronę placówki",
+      "permissions": [
+        "aptis.view-public"
+      ]
+    },
+    "patient": {
+      "description": "Pacjent - dostęp do własnego portalu pacjenta i wizyt",
+      "permissions": [
+        "aptis.view-public",
+        "patient.portal"
+      ]
+    },
+    "support": {
+      "description": "Wsparcie techniczne placówki - pomoc techniczna systemu",
+      "permissions": [
+        "aptis.view-public",
+        "patients.view"
+      ]
+    },
+    "registration": {
+      "description": "Rejestracja - obsługa pacjentów i kalendarza wizyt",
+      "permissions": [
+        "aptis.view-public",
+        "patients.view",
+        "patients.create",
+        "appointments.manage"
+      ]
+    },
+    "accountant": {
+      "description": "Księgowy - zarządzanie finansami i rozliczeniami placówki",
+      "permissions": [
+        "aptis.view-public",
+        "accounting.manage"
+      ]
+    },
+    "analyst": {
+      "description": "Analityk - wgląd w raporty i statystyki placówki",
+      "permissions": [
+        "aptis.view-public",
+        "analytics.view"
+      ]
+    },
+    "doctors": {
+      "description": "Lekarz / Specjalista - obsługa pacjentów, wizyt i dokumentacji medycznej",
+      "permissions": [
+        "aptis.view-public",
+        "patients.view",
+        "patients.edit",
+        "appointments.manage",
+        "medical-records.manage"
+      ]
+    },
+    "manager": {
+      "description": "Menadżer placówki - zarządzanie personelem, ustawieniami i raportami",
+      "permissions": [
+        "aptis.view-public",
+        "patients.view",
+        "patients.create",
+        "patients.edit",
+        "appointments.manage",
+        "medical-records.manage",
+        "analytics.view",
+        "facility.users-manage"
+      ]
+    },
+    "owner": {
+      "description": "Właściciel placówki - pełny dostęp do wszystkich funkcji i ustawień placówki",
+      "permissions": [
+        "aptis.view-public",
+        "patient.portal",
+        "patients.view",
+        "patients.create",
+        "patients.edit",
+        "appointments.manage",
+        "medical-records.manage",
+        "accounting.manage",
+        "analytics.view",
+        "facility.settings",
+        "facility.users-manage",
+        "owner.full-access"
+      ]
+    }
+  }
+}
