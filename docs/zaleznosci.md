@@ -22,7 +22,7 @@ composer show -t    # drzewo zależności
 
 1. **Tylko przez Composer.** Nie kopiuj cudzego kodu do repozytorium. Jeśli to konieczne,
    opisz go w sekcji [Kod skopiowany do repozytorium](#kod-skopiowany-do-repozytorium).
-2. **Licencja zgodna z MIT.** Dozwolone są MIT, BSD-2/3-Clause, Apache-2.0 i ISC.
+2. **Licencja permisywna.** Dozwolone są MIT, BSD-2/3-Clause, Apache-2.0 i ISC.
    Licencje copyleft (GPL, AGPL, LGPL) narzuciłyby swoje warunki użytkownikom paczki, więc wymagają
    osobnej decyzji.
 3. **Właściwa sekcja.** `require` dla kodu potrzebnego w działaniu, `require-dev` dla narzędzi

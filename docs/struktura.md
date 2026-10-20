@@ -19,7 +19,8 @@ mainboard/
 ├── composer.json        metadane paczki simplysmart/mainboard, autoload PSR-4, extra.laravel.providers
 ├── phpstan.neon         konfiguracja PHPStan (poziom max)
 ├── CLAUDE.md            instrukcje dla agentów AI
-└── LICENSE              licencja MIT
+├── LICENSE              licencja Simplysmart Restricted Source License 1.0
+└── THIRD_PARTY.md       wzór deklaracji użycia komercyjnego
 ```
 
 ## Assety

@@ -7,7 +7,7 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.1.0/).
 ### Added
 
 - `CONTRIBUTING.md` z zasadami wpisów w `CHANGELOG.md` i wydawania wersji.
-- Licencja MIT: plik `LICENSE` i sekcja „Licencja” w README.
+- Licencja Simplysmart Restricted Source License 1.0: pliki `LICENSE` i `THIRD_PARTY.md`, sekcja „Licencja” w README, w `composer.json` `"license": "proprietary"`; użycie niekomercyjne bez ograniczeń, komercyjne po deklaracji w pliku `THIRD_PARTY.md` projektu (wzór wpisu w `THIRD_PARTY.md`), sprzedaż i komercyjna redystrybucja kodu jako produktu za pisemną zgodą autora.
 - Dokumentacja w `docs/`: struktura projektu, wdrożenie na hosting współdzielony oraz pakiety zewnętrzne (aktualne zależności, licencje, zasady dodawania).
 - `composer.json` paczki `simplysmart/mainboard` (PHP ^8.4, autoload PSR-4: `Simplysmart\Mainboard\` → `src/`), `.gitignore` wykluczający pliki środowiska lokalnego (`.env*`, cały katalog `infrastructure/` z konfiguracją vhosta, PHP-FPM i SSL, katalogi IDE), `.editorconfig` i `.gitattributes`.
 - Integracja z Laravelem 13: zależność `illuminate/support` ^13.0 i `MainboardServiceProvider` rejestrowany automatycznie (`extra.laravel.providers`); kontrakty paczki w `src/Contracts/` (`Simplysmart\Mainboard\Contracts\`).
