@@ -46,8 +46,17 @@ Katalogi bez plików (`js/`, `img/ui/`, `fonts/`) zakładamy przy pierwszym plik
   w jednym miejscu. Arkusze linkujemy osobno w `<head>`, bez `@import`.
 - **Cache busting.** Adresy assetów dostają `?v=` z pliku `VERSION`, więc po wydaniu wersji
   przeglądarki pobierają nowe pliki.
-- **Bundler w przyszłości.** Gdy dojdzie Vite lub esbuild, źródła trafią do `resources/`,
-  a wynik builda do `public/assets/build/`.
+- **Vite w paczce (koncepcja).** Docelowo paczka dostaje własny Vite z Tailwind 4, budowany ze
+  szkieletu jednym `npm run build` (zob. [design-system.md](design-system.md#8-build-assetów-vite-w-każdej-paczce-uruchamiany-ze-szkieletu-docelowo)).
+  Wtedy dochodzą:
+
+  ```
+  mainboard/
+  ├── package.json         workspace npm @simplysmart/mainboard, skrypty dev i build
+  ├── vite.config.js       build assetów paczki
+  ├── resources/css|js/    źródła stylów i skryptów (Tailwind 4, @theme z tokenami)
+  └── public/build/        wynik builda z manifest.json (nie jest commitowany)
+  ```
 
 ## Co trafia na serwer
 

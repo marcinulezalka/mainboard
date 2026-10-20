@@ -16,6 +16,24 @@ Jeśli panel wymusza stały katalog (np. `public_html/`), wyślij do niego **tyl
 | `docs/` | dokumentacja |
 | `.claude/`, `.git/` | skille AI i historia repozytorium |
 | `.env*` | dane środowiska. Na serwerze tworzy się osobny plik |
+| `node_modules/`, `resources/css/`, `resources/js/` | źródła i narzędzia builda; serwer dostaje tylko wynik (zob. niżej) |
+
+## Assety
+
+> **Koncepcja** — obowiązuje, gdy paczki dostaną własny Vite
+> (zob. [design-system.md](design-system.md#8-build-assetów-vite-w-każdej-paczce-uruchamiany-ze-szkieletu-docelowo)).
+
+Hosting współdzielony zwykle nie ma Node.js, więc assety buduje się przed wysyłką (lokalnie
+albo w CI), w katalogu szkieletu:
+
+```bash
+npm ci
+npm run build                          # szkielet i wszystkie paczki
+php artisan mainboard:assets --copy    # kopiuje public/build paczek do public/vendor/<paczka>/
+```
+
+Na serwer trafia `public/` szkieletu razem z `public/build/` i `public/vendor/*/build/`.
+`--copy` zamiast symlinku, bo FTP i wiele hostingów nie przenosi symlinków.
 
 ## Paczka przez `git archive`
 

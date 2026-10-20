@@ -4,6 +4,8 @@
 | --- | --- | --- |
 | [Struktura projektu](struktura.md) | katalogi i pliki w katalogu głównym, układ assetów w `public/` | nowego, usuniętego lub przemianowanego katalogu albo pliku w katalogu głównym |
 | [Wdrożenie](wdrozenie.md) | hosting współdzielony: DocumentRoot, co wysyłać na serwer | tego, co trafia na serwer (`.gitattributes` `export-ignore`, nowe katalogi deweloperskie) |
+| [Baza danych i modele](baza-danych.md) | koncepcja: migracje w Core, makra pól, historia na triggerach, modele, i18n, RODO, tokeny, checksum, mappery | zasad schematu bazy, modeli, migracji, seederów lub mechanizmów Core dla danych |
+| [Design system](design-system.md) | koncepcja wyglądu: tokeny, motyw ciemny, karty, warstwy layoutu, komponenty Blade, Tailwind 4 w Core | wyglądu interfejsu, tokenów CSS, wspólnych komponentów lub builda stylów |
 | [Pakiety zewnętrzne](zaleznosci.md) | zależności Composer, licencje, zasady dodawania | `require` / `require-dev` w `composer.json` (tabela zależności) |
 
 Poza `docs/`:

@@ -44,6 +44,8 @@ a teksty paczki strefy plikiem `lang/vendor/<paczka>/<locale>/<plik>.php`. Kontr
 | --- | --- |
 | [Struktura projektu](docs/struktura.md) | katalogi i ich rola |
 | [Wdrożenie](docs/wdrozenie.md) | hosting współdzielony: co wysyłać, a czego nie |
+| [Baza danych i modele](docs/baza-danych.md) | koncepcja schematu, modeli, historii i tłumaczeń danych |
+| [Design system](docs/design-system.md) | koncepcja wyglądu interfejsu, tokenów i komponentów |
 | [Pakiety zewnętrzne](docs/zaleznosci.md) | zależności Composer, licencje, zasady dodawania |
 | [Marka](brand/README.md) | logo, sygnet, kolory, zasady użycia |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | zasady rozwoju i wydawania wersji |
